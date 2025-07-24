@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devipriyanka | Digital Marketing Freelancer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f9fc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .section {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Devipriyanka Karuppuswamy</h1>
+    <h2>Facebook & Instagram Ads Freelancer | Digital Marketing</h2>
+
+    <div class="section">
+      <h3>What I Do</h3>
+      <p>I help small businesses grow through high-converting Facebook and Instagram ad campaigns. Whether you're looking to increase sales, get more leads, or promote a course, I’ll build an ad strategy that works.</p>
+    </div>
+
+    <div class="section">
+      <h3>Services</h3>
+      <ul style="text-align: left;">
+        <li>✔️ Facebook & Instagram Ad Campaigns</li>
+        <li>✔️ Audience Targeting & A/B Testing</li>
+        <li>✔️ Landing Page & Funnel Setup</li>
+        <li>✔️ Ad Copy & Creative Guidance</li>
+        <li>✔️ Weekly Reporting & Optimization</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Client Feedback</h3>
+      <p>"Devipriyanka helped us scale our beauty brand with precise targeting — ROI went up 3x in just a month!"</p>
+      <p><em>— GlowSkincare Co.</em></p>
+    </div>
+
+    <div class="section">
+      <h3>Ready to Work Together?</h3>
+      <p>📩 DM me on Instagram @yourhandle or click below to book a free strategy call.</p>
+      <a href="https://calendly.com/yourname" class="button">Book a Call</a>
+    </div>
+  </div>
+</body>
+</html>
