@@ -29,9 +29,7 @@
             --border: #3a3f4f;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -42,10 +40,7 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
 
         /* NAVBAR */
         nav {
@@ -62,9 +57,7 @@
             z-index: 1000;
         }
 
-        body.dark nav {
-            background: rgba(17, 19, 26, 0.96);
-        }
+        body.dark nav { background: rgba(17, 19, 26, 0.96); }
 
         .brand {
             font-family: 'Playfair Display', serif;
@@ -73,9 +66,7 @@
             text-transform: uppercase;
         }
 
-        .brand span {
-            color: var(--gold);
-        }
+        .brand span { color: var(--gold); }
 
         .nav-links a {
             margin-left: 24px;
@@ -97,9 +88,7 @@
             transition: width 0.25s ease;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover::after { width: 100%; }
 
         .toggle-btn {
             margin-left: 24px;
@@ -114,7 +103,7 @@
             color: var(--gold);
         }
 
-        /* LAYOUT */
+        /* HERO */
         header {
             padding: 140px 10% 80px;
             background: linear-gradient(135deg, #1b2233, #252c3f);
@@ -141,9 +130,7 @@
             margin: 14px 0;
         }
 
-        .hero-title span {
-            color: var(--gold);
-        }
+        .hero-title span { color: var(--gold); }
 
         .hero-sub {
             max-width: 520px;
@@ -207,6 +194,7 @@
             padding: 18px;
         }
 
+        /* MAIN */
         main {
             padding: 70px 10% 60px;
             background: var(--bg);
@@ -242,3 +230,123 @@
             content: "";
             position: absolute;
             left: 0;
+            bottom: -10px;
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 26px 10% 30px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-alt);
+            font-size: 12px;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 14px;
+            font-size: 12px;
+        }
+
+        .footer-social a { color: var(--muted); }
+        .footer-social a:hover { color: var(--gold); }
+
+        @media (max-width: 900px) {
+            nav { padding: 12px 6%; }
+            header { padding: 120px 6% 60px; }
+            main { padding: 60px 6% 50px; }
+            .hero-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="brand">DK <span>DigitalStudio</span></div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <button class="toggle-btn" onclick="toggleDark()">Dark Mode</button>
+    </div>
+</nav>
+
+<header>
+    <div class="hero-grid">
+        <div>
+            <div class="hero-kicker">Luxury · Engineering · Design</div>
+            <h1 class="hero-title">Crafting <span>Elegant</span> Digital Experiences.</h1>
+            <p class="hero-sub">
+                I build refined, high‑performance applications and luxury‑grade business websites
+                with precision, clarity, and craftsmanship.
+            </p>
+
+            <div class="hero-actions">
+                <a href="projects.html" class="btn-primary">View Projects</a>
+                <a href="contact.html" class="btn-ghost">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-frame">
+            <div class="hero-frame-inner">Insert your photo here</div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section>
+        <div class="section-label">Welcome</div>
+        <h2>Where engineering meets luxury design.</h2>
+        <p class="muted">
+            DK DigitalStudio blends enterprise‑level development with refined UI/UX craftsmanship.
+            Every project is built with intention — elegant, scalable, and future‑ready.
+        </p>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-row">
+        <div>© 2026 DK DigitalStudio · Devipriyanka</div>
+        <div class="footer-social">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="mailto:devipriyankak91@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Reveal animation
+    const sections = document.querySelectorAll("main section");
+    function reveal() {
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 120) {
+                sec.classList.add("visible");
+            }
+        });
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Dark mode
+    function toggleDark() {
+        document.body.classList.toggle("dark");
+    }
+</script>
+
+</body>
+</html>
