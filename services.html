@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | DK DigitalStudio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f7f4ef;
+            --bg-alt: #f0ebe3;
+            --text: #2b2b2b;
+            --muted: #6f6f6f;
+            --primary: #1b2233;
+            --gold: #c9a86a;
+            --card: #ffffff;
+            --border: #e0d6c7;
+        }
+
+        body.dark {
+            --bg: #11131a;
+            --bg-alt: #181b24;
+            --text: #f3f0ea;
+            --muted: #b3aa9a;
+            --primary: #f3f0ea;
+            --card: #1b1f2a;
+            --border: #3a3f4f;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 14px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(247, 244, 239, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        body.dark nav {
+            background: rgba(17, 19, 26, 0.96);
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        .nav-links a {
+            margin-left: 24px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .toggle-btn {
+            margin-left: 24px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--gold);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            cursor: pointer;
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* HEADER */
+        header {
+            padding: 140px 10% 80px;
+            background: linear-gradient(135deg, #1b2233, #252c3f);
+            color: #f7f4ef;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 14px;
+        }
+
+        .hero-sub {
+            max-width: 600px;
+            font-size: 15px;
+            color: #e4ded2;
+        }
+
+        /* MAIN */
+        main {
+            padding: 70px 10% 60px;
+        }
+
+        section {
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin: 10px 0 18px;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* SERVICE CARDS */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+        }
+
+        .service-card {
+            background: var(--card);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* PROCESS TIMELINE */
+        .timeline {
+            border-left: 1px solid var(--border);
+            padding-left: 18px;
+            margin-top: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .timeline-step {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .timeline-meta {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* CTA */
+        .cta-box {
+            background: var(--card);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .cta-btn {
+            margin-top: 16px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: none;
+            background: var(--gold);
+            color: #1b2233;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 26px 10% 30px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-alt);
+            font-size: 12px;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 14px;
+            font-size: 12px;
+        }
+
+        .footer-social a {
+            color: var(--muted);
+        }
+
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 12px 6%; }
+            header { padding: 120px 6% 60px; }
+            main { padding: 60px 6% 50px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="brand">DK <span>DigitalStudio</span></div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="#services">Services</a>
+        <a href="contact.html">Contact</a>
+        <button class="toggle-btn" onclick="toggleDark()">Dark Mode</button>
+    </div>
+</nav>
+
+<header>
+    <h1 class="hero-title">Services crafted with precision.</h1>
+    <p class="hero-sub">
+        From enterprise applications to refined digital experiences, DK DigitalStudio delivers solutions
+        built for performance, clarity, and long‑term scalability.
+    </p>
+</header>
+
+<main>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="section-label">Offerings</div>
+        <h2>What I can help you build.</h2>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-title">Full Stack Web Development</div>
+                <div class="service-desc">
+                    End‑to‑end development using .NET Core, Angular, SQL Server, and Azure.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-title">Business Website Design</div>
+                <div class="service-desc">
+                    Elegant, responsive websites tailored to your brand and business goals.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-title">API Development</div>
+                <div class="service-desc">
+                    Secure, scalable REST APIs with clean architecture and documentation.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-title">Performance Optimization</div>
+                <div class="service-desc">
+                    Improve speed, stability, and maintainability of existing applications.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+        <div class="section-label">Process</div>
+        <h2>A structured approach to every project.</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-step">1. Discovery</div>
+                <div class="timeline-meta">Understanding goals, requirements, and constraints.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-step">2. Architecture</div>
+                <div class="timeline-meta">Designing scalable backend and frontend structures.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-step">3. Development</div>
+                <div class="timeline-meta">Building clean, maintainable, well‑documented code.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-step">4. Delivery</div>
+                <div class="timeline-meta">Testing, deployment, and long‑term support.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="cta-box">
+            <h3 style="font-family:'Playfair Display',serif;margin-bottom:10px;">Ready to start your project?</h3>
+            <p class="muted">Let’s build something elegant, scalable, and uniquely yours.</p>
+            <a href="contact.html"><button class="cta-btn">Contact Me</button></a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-row">
+        <div>© 2026 DK DigitalStudio · Devipriyanka</div>
+        <div class="footer-social">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="mailto:devipriyankak91@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Reveal animation
+    const sections = document.querySelectorAll("main section");
+    function reveal() {
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 120) {
+                sec.classList.add("visible");
+            }
+        });
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Dark mode
+    function toggleDark() {
+        document.body.classList.toggle("dark");
+    }
+</script>
+
+</body>
+</html>
