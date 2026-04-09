@@ -3,177 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devipriyanka | Portfolio</title>
+    <title>DK DigitalStudio | Luxury Portfolio</title>
 
-    <!-- Elegant Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --bg: #f7f4ef;
+            --bg-alt: #f0ebe3;
+            --text: #2b2b2b;
+            --muted: #6f6f6f;
+            --primary: #1b2233;
+            --gold: #c9a86a;
+            --card: #ffffff;
+            --border: #e0d6c7;
+        }
+
+        body.dark {
+            --bg: #11131a;
+            --bg-alt: #181b24;
+            --text: #f3f0ea;
+            --muted: #b3aa9a;
+            --primary: #f3f0ea;
+            --card: #1b1f2a;
+            --border: #3a3f4f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
             margin: 0;
-            background: #f7f9fc;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 14px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(247, 244, 239, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        body.dark nav {
+            background: rgba(17, 19, 26, 0.96);
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        .nav-links a {
+            margin-left: 24px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .toggle-btn {
+            margin-left: 24px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--gold);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            cursor: pointer;
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* LAYOUT */
         header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 80px 20px;
+            padding: 140px 10% 80px;
+            background: linear-gradient(135deg, #1b2233, #252c3f);
+            color: #f7f4ef;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-size: 11px;
+            color: #d0c7b8;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin: 14px 0;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            max-width: 520px;
+            font-size: 15px;
+            color: #e4ded2;
+        }
+
+        .hero-actions {
+            margin-top: 26px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: 1px solid var(--gold);
+            background: var(--gold);
+            color: #1b2233;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .btn-ghost {
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: 1px solid #d0c7b8;
+            background: transparent;
+            color: #f7f4ef;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .hero-frame {
+            border-radius: 18px;
+            border: 2px solid rgba(201, 168, 106, 0.7);
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, rgba(201,168,106,0.18), transparent 60%);
+        }
+
+        .hero-frame-inner {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 3/4;
+            border-radius: 14px;
+            border: 1px dashed rgba(201,168,106,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d0c7b8;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
             text-align: center;
+            padding: 18px;
         }
 
-        header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        header p {
-            font-size: 20px;
-            opacity: 0.9;
+        main {
+            padding: 70px 10% 60px;
+            background: var(--bg);
         }
 
         section {
-            padding: 70px 10%;
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-size: 11px;
+            color: var(--muted);
         }
 
         h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin: 10px 0 18px;
             position: relative;
         }
 
         h2::after {
             content: "";
-            width: 60px;
-            height: 4px;
-            background: #2a5298;
             position: absolute;
             left: 0;
-            bottom: -8px;
-            border-radius: 2px;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-size: 22px;
-            font-weight: 600;
-            color: #1e3c72;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
-            background: #1e3c72;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: background 0.25s ease;
-        }
-
-        .btn:hover {
-            background: #16315c;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>Devipriyanka Karuppuswamy</h1>
-    <p>Senior .NET Full Stack Developer • Website Designer</p>
-</header>
-
-<section>
-    <h2>About Me</h2>
-    <p>
-        I’m a Full Stack Developer with 8+ years of experience building scalable web applications using .NET Core and Angular.
-        I specialize in creating modern, responsive, and user-friendly websites for businesses.
-    </p>
-</section>
-
-<section>
-    <h2>Projects</h2>
-    <div class="projects">
-
-        <div class="card">
-            <h3>Story Magic</h3>
-            <p>E-commerce web application with product catalog, cart, and secure login.</p>
-            <a class="btn" href="https://github.com/Devipriyanka-25/story-magic" target="_blank">View Code</a>
-        </div>
-
-        <div class="card">
-            <h3>Organic Nest Shop</h3>
-            <p>Business website for organic products with responsive UI and contact form.</p>
-            <a class="btn" href="https://github.com/Devipriyanka-25/organic-chicken-shop" target="_blank">View Code</a>
-        </div>
-
-        <div class="card">
-            <h3>Restaurant Website</h3>
-            <p>Modern restaurant website with menu display, online reservation, and responsive design.</p>
-            <a class="btn" href="https://github.com/Devipriyanka-25/Restaurant" target="_blank">View Code</a>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <h2>Services</h2>
-    <ul>
-        <li>Full Stack Web Development</li>
-        <li>Business Website Design</li>
-        <li>API Development</li>
-        <li>Bug Fixing & Performance Optimization</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>Email: devipriyankak91@gmail.com</p>
-</section>
-
-<footer>
-    © 2026 Devipriyanka — All Rights Reserved
-</footer>
-
-</body>
-</html>
